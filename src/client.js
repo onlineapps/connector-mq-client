@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * AgentMQClient: a promise-based, broker-agnostic client for RabbitMQ (and minimal Kafka support).
+ * AgentMQClient: a promise-based, broker-agnostic client for RabbitMQ
  * Uses transportFactory to select the appropriate transport implementation.
  */
 
@@ -60,7 +60,7 @@ class AgentMQClient {
     this._config = merge({}, this._config, options);
 
     try {
-      // Instantiate appropriate transport: RabbitMQClient or KafkaClient
+      // Instantiate appropriate transport: RabbitMQClient 
       this._transport = transportFactory.create(this._config);
 
       // Register internal error propagation

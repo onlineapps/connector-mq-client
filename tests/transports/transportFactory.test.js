@@ -2,7 +2,6 @@
 
 const transportFactory = require('../../src/transports/transportFactory');
 const RabbitMQClient = require('../../src/transports/rabbitmqClient');
-// const KafkaClient = require('../../src/transports/kafkaClient'); // Uncomment when implemented
 
 describe('transportFactory', () => {
   test('should instantiate RabbitMQClient when config.type is "rabbitmq"', () => {
@@ -25,11 +24,4 @@ describe('transportFactory', () => {
     const config = { type: 'unsupported', host: 'x', queue: 'y' };
     expect(() => transportFactory.create(config)).toThrow(/Unsupported transport type/);
   });
-
-  // Placeholder for Kafka once implemented
-  // test('should instantiate KafkaClient when config.type is "kafka"', () => {
-  //   const config = { type: 'kafka', brokers: ['localhost:9092'], topic: 'test' };
-  //   const transport = transportFactory.create(config);
-  //   expect(transport).toBeInstanceOf(KafkaClient);
-  // });
 });

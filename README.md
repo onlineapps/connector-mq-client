@@ -5,19 +5,19 @@
 [![Coverage Status](https://codecov.io/gh/onlineapps/agent-mq-client/branch/main/graph/badge.svg)](https://codecov.io/gh/onlineapps/agent-mq-client)  
 [![npm version](https://img.shields.io/npm/v/@onlineapps/agent-mq-client)](https://www.npmjs.com/package/@onlineapps/agent-mq-client)
 
-> A promise-based, broker-agnostic client for sending and receiving messages via RabbitMQ (with minimal Kafka support). Designed for microservice agents that need a simple interface to publish and consume messages without dealing with low-level AMQP/Kafka details.
+> A promise-based, broker-agnostic client for sending and receiving messages via RabbitMQ. Designed for microservice agents that need a simple interface to publish and consume messages without dealing with low-level AMQP details.
 
 ---
 
 ## 🚀 Features
 
-- **Broker-agnostic API**: abstract over RabbitMQ (primary) and easily extendable to Kafka.
+- **Broker-agnostic API**: abstract over RabbitMQ (primary) and easily extendable.
 - **Promise-based interface**: `connect()`, `disconnect()`, `publish()`, `consume()`, `ack()`, `nack()` all return `Promise<void>`, simplifying async/await usage.
 - **Automatic queue/exchange management**: asserts queues, exchanges, prefetch settings on demand.
 - **Built-in serialization**: JSON serialization/deserialization with custom error handling.
 - **Global error propagation**: register error handlers via `onError(callback)`.
 - **Config validation**: strict schema validation (via Ajv) to catch missing or invalid fields at startup.
-- **Extensible transport layer**: clear separation between core logic and transport implementations (`RabbitMQClient`, placeholder for `KafkaClient`).
+- **Extensible transport layer**: clear separation between core logic and transport implementations (`RabbitMQClient`, ...).
 - **Stateless operations**: no persistent local state—broker handles retries and redelivery.
 
 ---
@@ -30,7 +30,7 @@ npm install @onlineapps/agent-mq-client
 yarn add @onlineapps/agent-mq-client
 ````
 
-> Requires Node.js ≥12. For RabbitMQ usage, ensure an accessible AMQP server. Kafka support is planned but not fully implemented in v1.0.0.
+> Requires Node.js ≥12. For RabbitMQ usage, ensure an accessible AMQP server.
 
 ---
 
@@ -44,7 +44,7 @@ const AgentMQClient = require('@onlineapps/agent-mq-client');
 (async () => {
   // 1. Instantiate client with configuration
   const client = new AgentMQClient({
-    type: 'rabbitmq',                   // Supported: 'rabbitmq' (fully) | 'kafka' (minimal)
+    type: 'rabbitmq',                   // Supported: 'rabbitmq' (fully)
     host: 'amqp://guest:guest@localhost:5672',
     queue: 'job_queue',                 // Default queue name
     exchange: '',                       // Default direct exchange
@@ -125,7 +125,7 @@ Configuration can be provided to the `AgentMQClient` constructor or as overrides
 
 | Field         | Type      | Description                                                                                                                                                        | Default                                                              |
 | ------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------- |
-| `type`        | `string`  | Transport type: `'rabbitmq'` (fully supported) or `'kafka'` (minimal).                                                                                             | `'rabbitmq'`                                                         |
+| `type`        | `string`  | Transport type: `'rabbitmq'`                                                                                     | `'rabbitmq'`                                                         |
 | `host`        | `string`  | Connection URI or hostname. For RabbitMQ: e.g. `'amqp://user:pass@localhost:5672'`.                                                                                | *Required*                                                           |
 | `queue`       | `string`  | Default queue name for publish/consume if not overridden per call.                                                                                                 | `''`                                                                 |
 | `exchange`    | `string`  | Default exchange name. Empty string uses the default direct exchange.                                                                                              | `''`                                                                 |
@@ -134,8 +134,6 @@ Configuration can be provided to the `AgentMQClient` constructor or as overrides
 | `noAck`       | `boolean` | Default auto-acknowledge setting for consumers. If `true`, messages will be auto-acked.                                                                            | `false`                                                              |
 | `logger`      | `object`  | Custom logger with methods: `info()`, `warn()`, `error()`, `debug()`. If omitted, `console` is used.                                                               | `null`                                                               |
 | `retryPolicy` | `object`  | Reconnection policy with properties:<br>‒ `retries` (number)<br>‒ `initialDelayMs` (ms)<br>‒ `maxDelayMs` (ms)<br>‒ `factor` (multiplier). Not enforced in v1.0.0. | `{ retries: 5, initialDelayMs: 1000, maxDelayMs: 30000, factor: 2 }` |
-
-> **Note:** Kafka-specific fields (`brokers`, `groupId`, `topic`) are accepted but functionality is limited until a full Kafka implementation is provided. Any unsupported or invalid field will trigger a `ValidationError`.
 
 ---
 

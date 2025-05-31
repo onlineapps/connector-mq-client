@@ -9,7 +9,6 @@
   - [Transport Layer](#transport-layer)
     - [TransportFactory](#transportfactory)
     - [RabbitMQClient](#rabbitmqclient)
-    - [(KafkaClient – optional)](#kafkaclient-–-optional)
   - [Configuration](#configuration)
     - [defaultConfig.js](#defaultconfigjs)
     - [configSchema.js](#configschemajs)
@@ -90,11 +89,6 @@ Handles low-level broker interactions. Swap implementations via `config.type`.
 
 - **Error Handling**  
   - Wrap all broker errors via `wrapTransportError(err, context)` (e.g., `'connect'`, `'publish'`, `'consume'`)
-
-#### (KafkaClient – optional)
-
-- Mentioned briefly: similar responsibilities using `kafkajs` (connect, produce, consume, commit offsets).  
-- Included by default as a hint for future support; core remains focused on RabbitMQ.
 
 ---
 
@@ -248,7 +242,6 @@ await client.consume(source, messageHandler, options);
 * **Consume Errors**:
 
   * **RabbitMQ**: on handler error → `nack()`, optionally requeue or send to DLQ.
-  * **Kafka** (if used): uncommitted offset → redelivery if auto‐commit disabled.
 
 ### Disconnect
 
@@ -307,7 +300,6 @@ To add another broker (e.g., AWS SQS):
 * **Integration Tests (Optional, Docker/CI)**
 
   * RabbitMQ: spin up local broker, publish/consume real messages, test ack/nack, prefetch, reconnection.
-  * Kafka (if used): similar flow with test cluster or testcontainers.
 
 ---
 

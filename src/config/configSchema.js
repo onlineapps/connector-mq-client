@@ -13,13 +13,13 @@ module.exports = {
   properties: {
     type: {
       type: 'string',
-      enum: ['rabbitmq', 'kafka'],
+      enum: ['rabbitmq'],
     },
     host: {
       type: 'string',
       minLength: 1,
     },
-    // For RabbitMQ: queue is required. For Kafka, topic/groupId could be used in future.
+    // For RabbitMQ: queue is required. 
     queue: {
       type: 'string',
       minLength: 1,

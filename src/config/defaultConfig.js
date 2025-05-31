@@ -10,7 +10,6 @@
 
 module.exports = {
   // Transport type: currently only 'rabbitmq' is fully supported.
-  // If set to 'kafka' in future, additional Kafka-specific fields will be honored.
   type: 'rabbitmq',
 
   // RabbitMQ connection URI or hostname (e.g., 'amqp://localhost:5672').

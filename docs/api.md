@@ -21,7 +21,7 @@
 
 ## Introduction
 
-`@onlineapps/agent-mq-client` exposes a promise-based interface for publishing and consuming messages via RabbitMQ (with placeholder for Kafka). It offloads queue/exchange setup, serialization, and error propagation so your code remains broker-agnostic.
+`@onlineapps/agent-mq-client` exposes a promise-based interface for publishing and consuming messages via RabbitMQ. It offloads queue/exchange setup, serialization, and error propagation so your code remains broker-agnostic.
 
 ---
 
@@ -31,7 +31,7 @@
 npm install @onlineapps/agent-mq-client
 ````
 
-Requires Node.js ≥12. Ensure an accessible RabbitMQ server when using `type: 'rabbitmq'`. Kafka fields are accepted but not fully supported in v1.
+Requires Node.js ≥12. Ensure an accessible RabbitMQ server when using `type: 'rabbitmq'`.
 
 ---
 
@@ -41,7 +41,7 @@ Pass a plain object to the constructor (or to `connect()` for overrides). Invali
 
 | Field         | Type      | Description                                                                                     | Default               |
 | ------------- | --------- | ----------------------------------------------------------------------------------------------- | --------------------- |
-| `type`        | `string`  | Transport type: `'rabbitmq'` (fully supported) or `'kafka'` (limited).                          | *required*            |
+| `type`        | `string`  | Transport type: `'rabbitmq'`                                                                    | *required*            |
 | `host`        | `string`  | Connection URI/hostname (e.g., `amqp://user:pass@localhost:5672`).                              | *required*            |
 | `queue`       | `string`  | Default queue name for publish/consume if not overridden per call.                              | `''`                  |
 | `exchange`    | `string`  | Default exchange name; `''` uses the default direct exchange.                                   | `''`                  |
@@ -50,8 +50,6 @@ Pass a plain object to the constructor (or to `connect()` for overrides). Invali
 | `noAck`       | `boolean` | Default auto-acknowledge setting for consumers.                                                 | `false`               |
 | `logger`      | `object`  | Custom logger with methods `info()`, `warn()`, `error()`, `debug()`. Falls back to `console.*`. | `null`                |
 | `retryPolicy` | `object`  | `{ retries, initialDelayMs, maxDelayMs, factor }`. Not enforced in v1.0.0.                      | `{5, 1000, 30000, 2}` |
-
-> **Note:** Kafka-specific fields (`brokers`, `groupId`, `topic`) are validated but functionality remains minimal until full Kafka support is added.
 
 ---
 
