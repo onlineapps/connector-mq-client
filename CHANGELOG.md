@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/onlineapps/agent-mq-client/compare/v1.0.3...v1.0.4) (2025-05-31)
+
+
+### Bug Fixes
+
+* versioning fix attempt[#2](https://github.com/onlineapps/agent-mq-client/issues/2) ([7ef905f](https://github.com/onlineapps/agent-mq-client/commit/7ef905f4154d3d64097104af139e60d8db7603c1))
+
 ## [1.0.3](https://github.com/onlineapps/agent-mq-client/compare/v1.0.2...v1.0.3) (2025-05-31)
 
 
