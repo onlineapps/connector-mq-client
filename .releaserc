@@ -1,0 +1,28 @@
+{
+  "branches": [
+    "main",
+    {
+      "name": "v*.*.*",
+      "prerelease": false
+    }
+  ],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    ["@semantic-release/changelog", {
+      "changelogFile": "CHANGELOG.md"
+    }],
+    ["@semantic-release/npm", {
+      "npmPublish": true
+    }],
+    ["@semantic-release/github", {
+      "assets": ["dist/**", "docs/**"],
+      "failTitle": "Release failed 😞",
+      "successTitle": "Release published 🎉"
+    }],
+    ["@semantic-release/git", {
+      "assets": ["package.json", "CHANGELOG.md"],
+      "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+    }]
+  ]
+}

@@ -1,0 +1,50 @@
+# .github/workflows/nodejs.yml
+# GitHub Actions CI pipeline for @onlineapps/agent-registry-client
+
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main          # build při pushi do main
+  pull_request:
+    branches:
+      - main          # build při otevření PR do main
+
+jobs:
+  build:
+    name: Build, Lint & Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmjs.org/
+          scope: '@onlineapps'
+          always-auth: true
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint code with ESLint
+        run: npm run lint
+
+      - name: Run tests with coverage
+        run: npm test -- --coverage
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          # pokud je repo public, token lze vynechat
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage/lcov.info
+          flags: unittests
+          fail_ci_if_error: true

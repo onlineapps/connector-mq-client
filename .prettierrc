@@ -1,0 +1,34 @@
+// .prettierrc.js
+// Prettier configuration for consistent code formatting across the project
+
+module.exports = {
+  // Maximum line length before Prettier wraps code
+  printWidth: 80,
+
+  // Number of spaces per indentation level
+  tabWidth: 2,
+
+  // Use spaces instead of tabs
+  useTabs: false,
+
+  // Print semicolons at the ends of statements
+  semi: true,
+
+  // Use single quotes instead of double quotes
+  singleQuote: true,
+
+  // Print trailing commas wherever possible (ES5+ compatible)
+  trailingComma: 'all',
+
+  // Print spaces between brackets in object literals
+  bracketSpacing: true,
+
+  // Put > of JSX elements on its own line
+  jsxBracketSameLine: false,
+
+  // Omit parentheses when there is only one function parameter
+  arrowParens: 'avoid',
+
+  // Maintain UNIX-style line endings
+  endOfLine: 'lf'
+};

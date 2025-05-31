@@ -1,0 +1,22 @@
+# Exclude source tests, docs, examples, and config files not needed in package
+/tests/
+/docs/
+/examples/
+/scripts/
+
+.eslintrc.js
+.prettierrc
+CHANGELOG.md
+
+# Git files
+.gitignore
+.gitattributes
+
+# Local environment
+.env
+.env.*.local
+
+# Build artifacts (if any were generated locally)
+dist/
+build/
+coverage/

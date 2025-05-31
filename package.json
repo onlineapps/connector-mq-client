@@ -1,0 +1,82 @@
+{
+    "name": "@onlineapps/agent-mq-client",
+    "version": "1.0.0",
+    "description": "A promise-based, broker-agnostic client for sending and receiving messages via RabbitMQ (and minimal Kafka support)",
+    "main": "src/index.js",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/onlineapps/agent-mq-client.git"
+    },
+    "files": [
+      "src/",
+      "README.md",
+      "LICENSE",
+      "CHANGELOG.md"
+    ],
+    "scripts": {
+      "test": "jest --coverage",
+      "lint": "eslint \"src/**/*.js\" \"tests/**/*.js\"",
+      "prettier:check": "prettier --check \"src/**/*.js\" \"tests/**/*.js\"",
+      "prettier:fix": "prettier --write \"src/**/*.js\" \"tests/**/*.js\""
+    },
+    "keywords": [
+      "agent",
+      "mq",
+      "rabbitmq",
+      "kafka",
+      "message-queue",
+      "microservice",
+      "client",
+      "async"
+    ],
+    "author": "OnlineApps Team <dev@onlineapps.io>",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/onlineapps/agent-mq-client/issues"
+    },
+    "homepage": "https://github.com/onlineapps/agent-mq-client#readme",
+    "dependencies": {
+      "amqplib": "^0.10.3",
+      "kafkajs": "^2.2.4",
+      "ajv": "^8.11.0"
+    },
+    "devDependencies": {
+      "eslint": "^8.30.0",
+      "eslint-config-prettier": "^8.5.0",
+      "prettier": "^2.8.0",
+      "jest": "^29.5.0",
+      "sinon": "^15.0.0"
+    },
+    "engines": {
+      "node": ">=12"
+    },
+    "peerDependencies": {},
+    "optionalDependencies": {},
+    "eslintConfig": {
+      "env": {
+        "node": true,
+        "jest": true,
+        "es2021": true
+      },
+      "extends": [
+        "eslint:recommended",
+        "prettier"
+      ],
+      "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "script"
+      },
+      "rules": {
+        "no-console": "off",
+        "strict": ["error", "global"]
+      }
+    },
+    "prettier": {
+      "printWidth": 100,
+      "singleQuote": true,
+      "trailingComma": "es5",
+      "tabWidth": 2,
+      "endOfLine": "lf"
+    }
+  }
+  
