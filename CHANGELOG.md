@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/onlineapps/agent-mq-client/compare/v1.0.0...v1.0.1) (2025-05-31)
+
+
+### Bug Fixes
+
+* test of semantic release versioning dummy update of readme ([7b4f120](https://github.com/onlineapps/agent-mq-client/commit/7b4f1204c494bae8a811ba0041212ce60e5b5647))
+
 # 1.0.0 (2025-05-31)
 
 
