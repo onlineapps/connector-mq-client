@@ -1,3 +1,10 @@
+# 1.0.0 (2025-05-31)
+
+
+### Features
+
+* first commit ([f261c32](https://github.com/onlineapps/agent-mq-client/commit/f261c32a40d9c27175d78afd223e5aa4ecb97320))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
