@@ -6,7 +6,7 @@
       "prerelease": false
     }
   ],
-  "initialVersion": "1.0.2",
+  "initialVersion": "1.0.3",
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
