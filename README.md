@@ -1,4 +1,3 @@
-````markdown
 # @onlineapps/agent-mq-client
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/onlineapps/agent-mq-client/nodejs.yml?branch=main)](https://github.com/onlineapps/agent-mq-client/actions)  
@@ -184,6 +183,3 @@ Contributions welcome! Please see [CONTRIBUTING.md](https://github.com/onlineapp
 ## 📜 License
 
 This project is licensed under the MIT License. See [LICENSE](https://github.com/onlineapps/agent-mq-client/blob/main/LICENSE) for details.
-
-```
-```
