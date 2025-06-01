@@ -1,7 +1,7 @@
 # @onlineapps/agent-mq-client
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/onlineapps/agent-mq-client/nodejs.yml?branch=main)](https://github.com/onlineapps/agent-mq-client/actions)  
-[![Coverage Status](https://codecov.io/gh/onlineapps/agent-mq-client/branch/main/graph/badge.svg)](https://codecov.io/gh/onlineapps/agent-mq-client)  
+[![Build Status](https://img.shields.io/github/actions/workflow/status/onlineapps/agent-mq-client/nodejs.yml?branch=main)](https://github.com/onlineapps/agent-mq-client/actions)
+[![Coverage Status](https://codecov.io/gh/onlineapps/agent-mq-client/branch/main/graph/badge.svg)](https://codecov.io/gh/onlineapps/agent-mq-client)
 [![npm version](https://img.shields.io/npm/v/@onlineapps/agent-mq-client)](https://www.npmjs.com/package/@onlineapps/agent-mq-client)
 
 > A promise-based, broker-agnostic client for sending and receiving messages via RabbitMQ. Designed for microservice agents that need a simple interface to publish and consume messages without dealing with low-level AMQP details.
