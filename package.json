@@ -1,11 +1,11 @@
 {
-    "name": "@onlineapps/agent-mq-client",
+    "name": "@onlineapps/connector-mq-client",
     "version": "1.0.4",
     "description": "A promise-based, broker-agnostic client for sending and receiving messages via RabbitMQ",
     "main": "src/index.js",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/onlineapps/agent-mq-client.git"
+        "url": "git+https://github.com/onlineapps/connector-mq-client.git"
     },
     "files": [
         "src/",
@@ -20,7 +20,7 @@
         "prettier:fix": "prettier --write \"src/**/*.js\" \"tests/**/*.js\""
     },
     "keywords": [
-        "agent",
+        "connector",
         "mq",
         "rabbitmq",
         "kafka",
@@ -32,9 +32,9 @@
     "author": "OnlineApps Team <dev@onlineapps.io>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/onlineapps/agent-mq-client/issues"
+        "url": "https://github.com/onlineapps/connector-mq-client/issues"
     },
-    "homepage": "https://github.com/onlineapps/agent-mq-client#readme",
+    "homepage": "https://github.com/onlineapps/connector-mq-client#readme",
     "dependencies": {
         "ajv": "^8.11.0",
         "amqplib": "^0.10.3"
